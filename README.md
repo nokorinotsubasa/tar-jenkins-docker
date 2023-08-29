@@ -53,11 +53,9 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `tar -xzvf volume.tgz`
 
->`this will extract the tar file`
-
 ![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/extractfile.png)
 
-> `-x extracts the file, -z uses the XZ algorithm, -v verbose (prints a message for each extracted file), -f specifies the name of the file`
+>`this will extract the tar file`
 
 - We already specified the jenkins_home PATH on the .tar command, so it will replace all jenkins data with the archived jenkins data on the .tar file.
 
