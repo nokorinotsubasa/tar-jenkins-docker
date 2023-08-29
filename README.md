@@ -5,13 +5,15 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 ### Steps
 
-- On the Vm running the Jenkins Docker container, run the below command to tar and zip the volume which Jenkins uses to store its data, in our case `/var/jenkins_home`
+- On the Vm running the Jenkins Docker container, run the below command to tar and zip the volume which Jenkins uses to store its data, in our case `/var/jenkins_home`:
 
 `docker run --cidfile=id.tmp --volumes-from <container_id> ubuntu tar -cO /var/jenkins_home | gzip -c > volume.tgz`
 
 ![]()
 
 >`this will also create a log file`
+
+>`it runs on ubuntu docker image`
 
 >`volume.tgz is the name that I gave the final .tar file`
 
