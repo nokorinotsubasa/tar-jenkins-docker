@@ -11,17 +11,19 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 ![]()
 
+>`this can take some time to complete`
+
+>`you need to have docker installed`
+
 >`this will also create a log file`
 
 >`it runs on ubuntu docker image`
 
->`volume.tgz is the name that I gave the final .tar file`
+>`volume.tgz is the name that of the final .tar file`
 
 - Now you can upload the file wherever you want, in our case, we will upload to an azure storage account. To do this, with azure cli installed, run:
 
 `az storage blob upload --account-name storage-account-name --container-name container-name --name volume.tgz --file volume.tgz --auth-mode key`
-
-![]()
 
 >`you can also use --auth-mode login if you will`
 
@@ -29,15 +31,11 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `docker pull jenkins/jenkins`
 
-![]()
-
 >`this will pull the latest jenkins docker image`
 
 - Run the docker image:
 
 `docker run --name jenkins -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins`
-
-![]()
 
 >`this will run a container named jenkins, based on jenkins/jenkins image, on detached mode, with ports 8080 and 50000 open. Also, we are defining the volume, this volume will be where the jenkins data will be stored.`
 
@@ -49,11 +47,9 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `az storage blob download --account-name storage-account-name --container-name container-name --name volume.tgz --file volume.tgz --auth-mode key`
 
-![]()
-
 >`you can also use --auth-mode login if you will`
 
-- Now, untar it:
+- Now, extract it:
 
 `tar -xzvf volume.tgz`
 
@@ -71,6 +67,6 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 ### Final Result
 
-Now when you access Jenkins, it will have all the data at backup run time:
+Now when you access Jenkins, it will have all the data at backup run time and prompt you to log in:
 
 ![]()
