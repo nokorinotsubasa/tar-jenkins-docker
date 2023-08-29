@@ -1,7 +1,7 @@
 # Introduction
 Here we will see how to persist Jenkins data with .tar on a containerized jenkins.
 
-![]()
+![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/archtecture.png)
 
 ### Steps
 
@@ -9,7 +9,7 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `docker run --cidfile=id.tmp --volumes-from <container_id> ubuntu tar -cO /var/jenkins_home | gzip -c > volume.tgz`
 
-![]()
+![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/tarcommand.png)
 
 >`this can take some time to complete`
 
@@ -55,7 +55,7 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 >`this will extract the tar file`
 
-![]()
+![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/extractfile.png)
 
 > `-x extracts the file, -z uses the XZ algorithm, -v verbose (prints a message for each extracted file), -f specifies the name of the file`
 
@@ -69,4 +69,4 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 Now when you access Jenkins, it will have all the data at backup run time and prompt you to log in:
 
-![]()
+![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/jenkinsloginpage.png)
