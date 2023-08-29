@@ -9,7 +9,7 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `docker run --cidfile=id.tmp --volumes-from <container_id> ubuntu tar -cO /var/jenkins_home | gzip -c > volume.tgz`
 
-![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/tarcommand.png)
+![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/131136d52a2b0dfd5ffa2cdeaa8dbcb00dd3772a/images/tarcommand.png)
 
 >`this can take some time to complete`
 
