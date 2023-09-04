@@ -3,7 +3,15 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 ![](https://github.com/nokorinotsubasa/tar-jenkins-docker/blob/cd00d664ae4d7a6d2af87b3c41689126076d0262/images/archtecture.png)
 
-### Steps
+## Notes about terraform
+
+- Don't forget to change `terraform.tfvars` to set vm admin username, storage account key etc;
+
+- The Virtual machines password will NOT be on the output, instead they can be securely found in the `terraform.tfstate` file.
+
+## Steps
+
+>`Note that in this example we will backup to an Azure Storage Account`
 
 - On the Vm running the Jenkins Docker container, run the below command to tar and zip the volume which Jenkins uses to store its data, in our case `/var/jenkins_home`:
 
@@ -63,7 +71,7 @@ Here we will see how to persist Jenkins data with .tar on a containerized jenkin
 
 `docker restart <container_id>`
 
-### Final Result
+## Final Result
 
 Now when you access Jenkins, it will have all the data at backup run time and prompt you to log in:
 
